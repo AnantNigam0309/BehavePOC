@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuite errors="1" failures="0" name="Features.reports.This Feature Test for Reporting in Timeline Campaign" skipped="0" tests="1" time="0.057309"><testcase classname="Features.reports.This Feature Test for Reporting in Timeline Campaign" name="Making a Connection and Executing one Demo Case" status="failed" time="0.057309"><error message="TTransportException(message=&quot;Could not connect to ('127.0.0.1', 8099)&quot;, type=1)" type="TTransportException">
+<![CDATA[
+Failing step: And make client with "LifecycleReportingService" service ... failed in 0.000s
+Location: features/Features/reports.feature:7
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/behave/model.py", line 1456, in run
+    match.run(runner.context)
+  File "/usr/local/lib/python2.7/dist-packages/behave/model.py", line 1903, in run
+    self.func(context, *args, **kwargs)
+  File "features/steps/reports.py", line 17, in step_impl
+    context.client = make_client(context.timeline.LifecycleReportingService, '127.0.0.1', 8099)
+  File "/usr/lib/python2.7/dist-packages/thriftpy/rpc.py", line 31, in make_client
+    transport.open()
+  File "/usr/lib/python2.7/dist-packages/thriftpy/transport/buffered/__init__.py", line 29, in open
+    return self._trans.open()
+  File "/usr/lib/python2.7/dist-packages/thriftpy/transport/socket.py", line 104, in open
+    message="Could not connect to %s" % str(addr))
+TTransportException: TTransportException(message="Could not connect to ('127.0.0.1', 8099)", type=1)
+
+Captured stderr:
+/home/anantnigam/PycharmProjects/thriftFramework/features/steps/reports.py:11: ContextMaskWarning: user code is masking context attribute 'timeline'; see the tutorial for what this means
+  context.timeline= thriftpy.load(constant.timlineThriftPath,module_name=file + "_thrift")
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Timeline_Report_Demo
+  Scenario: Making a Connection and Executing one Demo Case
+    Given we need to load "temporal_engine" thrift file in memory ... passed in 0.057s
+    And make client with "LifecycleReportingService" service ... failed in 0.000s
+    Then make call to getCampaignExecutionDetails for orgId "1193" and orgConfigId "1199" ... skipped in 0.000s
+    Then validate the results for campaign ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out><system-err>
+<![CDATA[
+Captured stderr:
+/home/anantnigam/PycharmProjects/thriftFramework/features/steps/reports.py:11: ContextMaskWarning: user code is masking context attribute 'timeline'; see the tutorial for what this means
+  context.timeline= thriftpy.load(constant.timlineThriftPath,module_name=file + "_thrift")
+
+]]>
+</system-err></testcase></testsuite>

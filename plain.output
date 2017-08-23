@@ -1,0 +1,25 @@
+Feature: This Feature Test for Reporting in Timeline Campaign
+
+  Scenario: Making a Connection and Executing one Demo Case
+    Given we need to load "temporal_engine" thrift file in memory ... passed in 0.057s
+    And make client with "LifecycleReportingService" service ... failed in 0.000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/behave/model.py", line 1456, in run
+    match.run(runner.context)
+  File "/usr/local/lib/python2.7/dist-packages/behave/model.py", line 1903, in run
+    self.func(context, *args, **kwargs)
+  File "features/steps/reports.py", line 17, in step_impl
+    context.client = make_client(context.timeline.LifecycleReportingService, '127.0.0.1', 8099)
+  File "/usr/lib/python2.7/dist-packages/thriftpy/rpc.py", line 31, in make_client
+    transport.open()
+  File "/usr/lib/python2.7/dist-packages/thriftpy/transport/buffered/__init__.py", line 29, in open
+    return self._trans.open()
+  File "/usr/lib/python2.7/dist-packages/thriftpy/transport/socket.py", line 104, in open
+    message="Could not connect to %s" % str(addr))
+TTransportException: TTransportException(message="Could not connect to ('127.0.0.1', 8099)", type=1)
+
+Captured stderr:
+/home/anantnigam/PycharmProjects/thriftFramework/features/steps/reports.py:11: ContextMaskWarning: user code is masking context attribute 'timeline'; see the tutorial for what this means
+  context.timeline= thriftpy.load(constant.timlineThriftPath,module_name=file + "_thrift")
+
+
